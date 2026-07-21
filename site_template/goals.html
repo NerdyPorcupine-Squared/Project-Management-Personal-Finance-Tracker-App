@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledgerline — Goals</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+  <nav class="rail" aria-label="Primary">
+    <a class="rail__mark" href="dashboard.html">LEDGERLINE</a>
+    <div class="rail__nav">
+      <a class="tab" href="dashboard.html">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Home
+      </a>
+      <a class="tab" href="transactions.html">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        Ledger
+      </a>
+      <a class="tab" href="goals.html" aria-current="page">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        Goals
+      </a>
+      <a class="tab" href="reports.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Reports
+      </a>
+    </div>
+    <div class="rail__foot">
+      <a class="rail__signout" href="index.html">SIGN OUT</a>
+    </div>
+  </nav>
+
+  <main class="main ruled">
+    <div class="topline">
+      <div>
+        <p class="eyebrow">Savings goals</p>
+        <h1 class="page-title">Goals</h1>
+      </div>
+      <div class="topline__meta">4 active goals · $412 added this month</div>
+    </div>
+
+    <section class="goals-grid" id="goalsGrid">
+      <article class="card goal-card">
+        <div class="goal-card__top">
+          <div>
+            <p class="goal-card__title">Emergency fund</p>
+            <p class="goal-card__sub">Target by Dec 2026</p>
+          </div>
+          <div class="goal-card__icon" style="background:#E4EDE6;color:#244936;">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
+          </div>
+        </div>
+        <div class="goal-progress">
+          <div class="goal-progress__track"><div class="goal-progress__fill" style="width:68%"></div></div>
+          <div class="goal-progress__nums">
+            <span>$3,400 <span style="opacity:.6">saved</span></span>
+            <span><strong>$5,000</strong> goal</span>
+          </div>
+        </div>
+        <div class="goal-card__foot">
+          <span class="goal-card__pct">68%</span>
+          <button class="btn btn--ghost btn--sm" type="button">Add funds</button>
+        </div>
+      </article>
+
+      <article class="card goal-card">
+        <div class="goal-card__top">
+          <div>
+            <p class="goal-card__title">Kyoto trip</p>
+            <p class="goal-card__sub">Target by Mar 2027</p>
+          </div>
+          <div class="goal-card__icon" style="background:#F3E7D2;color:#8A5A20;">
+            <svg viewBox="0 0 24 24"><path d="M3 12l7-7 3 3-7 7-3-3z"/><path d="M13 8l7-4-4 7"/><path d="M8 16l-4 4"/></svg>
+          </div>
+        </div>
+        <div class="goal-progress">
+          <div class="goal-progress__track"><div class="goal-progress__fill" style="width:34%"></div></div>
+          <div class="goal-progress__nums">
+            <span>$1,020 <span style="opacity:.6">saved</span></span>
+            <span><strong>$3,000</strong> goal</span>
+          </div>
+        </div>
+        <div class="goal-card__foot">
+          <span class="goal-card__pct">34%</span>
+          <button class="btn btn--ghost btn--sm" type="button">Add funds</button>
+        </div>
+      </article>
+
+      <article class="card goal-card">
+        <div class="goal-card__top">
+          <div>
+            <p class="goal-card__title">New laptop</p>
+            <p class="goal-card__sub">Target by Sep 2026</p>
+          </div>
+          <div class="goal-card__icon" style="background:#E4EDE6;color:#244936;">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="11" rx="1"/><path d="M2 19h20"/></svg>
+          </div>
+        </div>
+        <div class="goal-progress">
+          <div class="goal-progress__track"><div class="goal-progress__fill" style="width:91%"></div></div>
+          <div class="goal-progress__nums">
+            <span>$1,820 <span style="opacity:.6">saved</span></span>
+            <span><strong>$2,000</strong> goal</span>
+          </div>
+        </div>
+        <div class="goal-card__foot">
+          <span class="goal-card__pct">91%</span>
+          <button class="btn btn--ghost btn--sm" type="button">Add funds</button>
+        </div>
+      </article>
+
+      <article class="card goal-card">
+        <div class="goal-card__top">
+          <div>
+            <p class="goal-card__title">Home down payment</p>
+            <p class="goal-card__sub">Target by 2029</p>
+          </div>
+          <div class="goal-card__icon" style="background:#F3E7D2;color:#8A5A20;">
+            <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg>
+          </div>
+        </div>
+        <div class="goal-progress">
+          <div class="goal-progress__track"><div class="goal-progress__fill" style="width:12%"></div></div>
+          <div class="goal-progress__nums">
+            <span>$6,000 <span style="opacity:.6">saved</span></span>
+            <span><strong>$50,000</strong> goal</span>
+          </div>
+        </div>
+        <div class="goal-card__foot">
+          <span class="goal-card__pct">12%</span>
+          <button class="btn btn--ghost btn--sm" type="button">Add funds</button>
+        </div>
+      </article>
+
+      <button class="add-goal-card" id="addGoalCard" type="button" aria-haspopup="dialog" aria-controls="goalModal">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        New goal
+      </button>
+    </section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="goalModal" data-open="false">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="goalModalTitle">
+    <h3 id="goalModalTitle">New savings goal</h3>
+    <p class="hint">It'll appear on this page right away.</p>
+    <form id="goalForm">
+      <div class="field">
+        <label for="goalName">Goal name</label>
+        <input type="text" id="goalName" placeholder="e.g. Wedding fund" required>
+      </div>
+      <div class="field">
+        <label for="goalTarget">Target amount ($)</label>
+        <input type="number" id="goalTarget" min="1" step="1" placeholder="2500" required>
+      </div>
+      <div class="field">
+        <label for="goalSaved">Already saved ($)</label>
+        <input type="number" id="goalSaved" min="0" step="1" placeholder="0">
+      </div>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-close-modal style="flex:1">Cancel</button>
+        <button type="submit" class="btn btn--primary" style="flex:1">Create goal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
