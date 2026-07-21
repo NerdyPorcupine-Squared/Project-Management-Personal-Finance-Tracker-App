@@ -1,13 +1,32 @@
 {
   "name": "personal-finance-tracker",
+  "version": "1.0.0",
+  "main": "electron/main.cjs",
   "private": true,
   "scripts": {
     "install:all": "npm install --prefix server && npm install --prefix client",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "build": "npm run build --prefix client"
+    "build": "npm run build --prefix client",
+    "desktop": "electron .",
+    "dist:win": "npm run build && electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.student.personalfinancetracker",
+    "productName": "Personal Finance Tracker",
+    "directories": { "output": "release" },
+    "files": ["electron/**/*", "package.json"],
+    "extraResources": [
+      { "from": "client/dist", "to": "client/dist" },
+      { "from": "server/src", "to": "server/src" },
+      { "from": "server/prisma", "to": "server/prisma" },
+      { "from": "server/node_modules", "to": "server/node_modules" }
+    ],
+    "win": { "target": "nsis" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12"
   }
 }
-

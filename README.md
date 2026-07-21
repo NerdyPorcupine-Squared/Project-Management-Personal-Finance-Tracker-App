@@ -51,6 +51,18 @@ server/       Express API and Prisma schema
 
 Open `http://localhost:5173`. The API runs on `http://localhost:5000`.
 
+## Windows executable
+
+The app can be packaged as a Windows installer (`.exe`) using Electron. It still needs PostgreSQL. For the packaged app, set `DATABASE_URL` and `JWT_SECRET` as Windows environment variables before opening it (a local `server/.env` is used during development only).
+
+```bash
+npm install
+npm run install:all
+npm run dist:win
+```
+
+The installer will be created in the `release/` folder. To preview the desktop window without packaging, run `npm run build` followed by `npm run desktop`.
+
 ## Features
 
 - Register, log in, and log out
