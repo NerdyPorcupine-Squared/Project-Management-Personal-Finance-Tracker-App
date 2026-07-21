@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const { pathToFileURL } = require('url');
 
 let server;
 
@@ -15,7 +16,8 @@ async function createWindow() {
     process.env.DATABASE_URL = `file:${localDatabase.replace(/\\/g, '/')}`;
     // This concept app runs entirely on one computer, so no external secret setup is needed.
     process.env.JWT_SECRET ||= 'local-finance-tracker-secret';
-    const { startServer } = await import(path.join(projectFiles, 'server', 'src', 'app.js'));
+    const serverModule = path.join(projectFiles, 'server', 'src', 'app.js');
+    const { startServer } = await import(pathToFileURL(serverModule).href);
     server = startServer(5000);
 
     const window = new BrowserWindow({
