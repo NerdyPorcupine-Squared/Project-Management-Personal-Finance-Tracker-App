@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledgerline — Transactions</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+  <nav class="rail" aria-label="Primary">
+    <a class="rail__mark" href="dashboard.html">LEDGERLINE</a>
+    <div class="rail__nav">
+      <a class="tab" href="dashboard.html">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Home
+      </a>
+      <a class="tab" href="transactions.html" aria-current="page">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        Ledger
+      </a>
+      <a class="tab" href="goals.html">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        Goals
+      </a>
+      <a class="tab" href="reports.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Reports
+      </a>
+    </div>
+    <div class="rail__foot">
+      <a class="rail__signout" href="index.html">SIGN OUT</a>
+    </div>
+  </nav>
+
+  <main class="main ruled">
+    <div class="topline">
+      <div>
+        <p class="eyebrow">Full ledger</p>
+        <h1 class="page-title">Transactions</h1>
+      </div>
+      <div class="topline__meta">42 entries · Jul 1 – Jul 20, 2026</div>
+    </div>
+
+    <div class="toolbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" id="txSearch" placeholder="Search by merchant, category, or note…" aria-label="Search transactions">
+      </div>
+      <div class="chip-row" role="group" aria-label="Filter by category">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="income" aria-pressed="false">Income</button>
+        <button class="chip" data-filter="housing" aria-pressed="false">Housing</button>
+        <button class="chip" data-filter="groceries" aria-pressed="false">Groceries</button>
+        <button class="chip" data-filter="transport" aria-pressed="false">Transport</button>
+        <button class="chip" data-filter="dining" aria-pressed="false">Dining</button>
+      </div>
+    </div>
+
+    <div class="card table-wrap">
+      <table class="ledger-table" id="txTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th class="num">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="income" data-search="payroll deposit income jul 20 2026">
+            <td>Jul 20</td><td>Payroll deposit</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#35654D"></span>Income</span></td>
+            <td class="amount amount--credit">+$2,560.00</td>
+          </tr>
+          <tr data-category="groceries" data-search="fernwood market groceries jul 20 2026">
+            <td>Jul 20</td><td>Fernwood Market</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
+            <td class="amount amount--debit">−$64.22</td>
+          </tr>
+          <tr data-category="dining" data-search="rooftop noodle bar dining jul 19 2026">
+            <td>Jul 19</td><td>Rooftop Noodle Bar</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
+            <td class="amount amount--debit">−$32.50</td>
+          </tr>
+          <tr data-category="transport" data-search="northline transit pass transport jul 14 2026">
+            <td>Jul 14</td><td>Northline Transit Pass</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#4E6E86"></span>Transport</span></td>
+            <td class="amount amount--debit">−$88.00</td>
+          </tr>
+          <tr data-category="housing" data-search="cedar and co rent housing jul 15 2026">
+            <td>Jul 15</td><td>Cedar & Co. Rent</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#7A5C3E"></span>Housing</span></td>
+            <td class="amount amount--debit">−$1,450.00</td>
+          </tr>
+          <tr data-category="groceries" data-search="harvest co-op groceries jul 13 2026">
+            <td>Jul 13</td><td>Harvest Co-op</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
+            <td class="amount amount--debit">−$41.90</td>
+          </tr>
+          <tr data-category="dining" data-search="pressed juicery dining jul 12 2026">
+            <td>Jul 12</td><td>Pressed Juicery</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
+            <td class="amount amount--debit">−$8.75</td>
+          </tr>
+          <tr data-category="transport" data-search="ridehail transport jul 11 2026">
+            <td>Jul 11</td><td>Ridehail — evening trip</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#4E6E86"></span>Transport</span></td>
+            <td class="amount amount--debit">−$18.40</td>
+          </tr>
+          <tr data-category="income" data-search="freelance invoice 0042 income jul 9 2026">
+            <td>Jul 9</td><td>Freelance invoice #0042</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#35654D"></span>Income</span></td>
+            <td class="amount amount--credit">+$640.00</td>
+          </tr>
+          <tr data-category="housing" data-search="brightline power utilities housing jul 8 2026">
+            <td>Jul 8</td><td>Brightline Power & Utilities</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#7A5C3E"></span>Housing</span></td>
+            <td class="amount amount--debit">−$96.30</td>
+          </tr>
+          <tr data-category="groceries" data-search="fernwood market groceries jul 6 2026">
+            <td>Jul 6</td><td>Fernwood Market</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
+            <td class="amount amount--debit">−$71.14</td>
+          </tr>
+          <tr data-category="dining" data-search="corner diner brunch dining jul 5 2026">
+            <td>Jul 5</td><td>Corner Diner — brunch</td>
+            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
+            <td class="amount amount--debit">−$27.60</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="empty-state" id="txEmpty">
+        <h3>No entries match</h3>
+        <p>Try a different search term or clear the category filter.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

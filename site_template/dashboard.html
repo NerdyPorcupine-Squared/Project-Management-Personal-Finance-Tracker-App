@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledgerline — Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+  <nav class="rail" aria-label="Primary">
+    <a class="rail__mark" href="dashboard.html">LEDGERLINE</a>
+    <div class="rail__nav">
+      <a class="tab" href="dashboard.html" aria-current="page">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Home
+      </a>
+      <a class="tab" href="transactions.html">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        Ledger
+      </a>
+      <a class="tab" href="goals.html">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+        Goals
+      </a>
+      <a class="tab" href="reports.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Reports
+      </a>
+    </div>
+    <div class="rail__foot">
+      <a class="rail__signout" href="index.html">SIGN OUT</a>
+    </div>
+  </nav>
+
+  <main class="main ruled">
+    <div class="topline">
+      <div>
+        <p class="eyebrow">Ledger overview</p>
+        <h1 class="page-title">Good afternoon, Mara.</h1>
+      </div>
+      <div class="topline__meta">Tuesday, July 21, 2026<br>Last entry logged 14 minutes ago</div>
+    </div>
+
+    <section class="grid grid--summary">
+      <div class="card balance-card">
+        <span class="balance-card__label">Available balance</span>
+        <span class="balance-card__value">$<span data-count-to="8492" data-decimals="2">0</span></span>
+        <span class="balance-card__delta">↑ 4.2% since last month</span>
+      </div>
+      <div class="card stat-card">
+        <span class="stat-card__label">Income this month</span>
+        <span class="stat-card__value amount amount--credit">+$5,120.00</span>
+      </div>
+      <div class="card stat-card">
+        <span class="stat-card__label">Spending this month</span>
+        <span class="stat-card__value amount amount--debit">−$2,384.16</span>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>Quick navigation</h2>
+    </div>
+    <section class="grid grid--nav">
+      <a class="card nav-card" href="transactions.html">
+        <span class="nav-card__icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+        <span class="nav-card__title">Transactions</span>
+        <span class="nav-card__desc">Review every entry, filter by category, search for anything.</span>
+      </a>
+      <a class="card nav-card" href="goals.html">
+        <span class="nav-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <span class="nav-card__title">Goals</span>
+        <span class="nav-card__desc">Track savings targets and watch each one fill in.</span>
+      </a>
+      <a class="card nav-card" href="reports.html">
+        <span class="nav-card__icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></span>
+        <span class="nav-card__title">Reports</span>
+        <span class="nav-card__desc">See trends across months and where your money goes.</span>
+      </a>
+      <a class="card nav-card" href="transactions.html#add">
+        <span class="nav-card__icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span class="nav-card__title">Add entry</span>
+        <span class="nav-card__desc">Log a new transaction straight into the ledger.</span>
+      </a>
+    </section>
+
+    <section class="grid grid--two">
+      <div>
+        <div class="section-head">
+          <h2>Recent activity</h2>
+          <a href="transactions.html">View full ledger →</a>
+        </div>
+        <div class="card" style="padding: 8px 20px;">
+          <ul class="entry-list">
+            <li>
+              <div>
+                <div class="who">Fernwood Market</div>
+                <div class="meta">Groceries · Jul 20</div>
+              </div>
+              <span class="amount amount--debit">−$64.22</span>
+            </li>
+            <li>
+              <div>
+                <div class="who">Payroll deposit</div>
+                <div class="meta">Income · Jul 18</div>
+              </div>
+              <span class="amount amount--credit">+$2,560.00</span>
+            </li>
+            <li>
+              <div>
+                <div class="who">Cedar & Co. Rent</div>
+                <div class="meta">Housing · Jul 15</div>
+              </div>
+              <span class="amount amount--debit">−$1,450.00</span>
+            </li>
+            <li>
+              <div>
+                <div class="who">Northline Transit Pass</div>
+                <div class="meta">Transport · Jul 14</div>
+              </div>
+              <span class="amount amount--debit">−$88.00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-head">
+          <h2>Where it went</h2>
+          <a href="reports.html">Full report →</a>
+        </div>
+        <div class="card" style="padding: 22px 20px;">
+          <div class="category-bars">
+            <div class="cat-row">
+              <span class="cat-row__label">Housing</span>
+              <span class="cat-row__track"><span class="cat-row__fill" style="width:61%"></span></span>
+              <span class="cat-row__value">$1,450</span>
+            </div>
+            <div class="cat-row">
+              <span class="cat-row__label">Groceries</span>
+              <span class="cat-row__track"><span class="cat-row__fill" style="width:22%"></span></span>
+              <span class="cat-row__value">$522</span>
+            </div>
+            <div class="cat-row">
+              <span class="cat-row__label">Transport</span>
+              <span class="cat-row__track"><span class="cat-row__fill" style="width:9%"></span></span>
+              <span class="cat-row__value">$214</span>
+            </div>
+            <div class="cat-row">
+              <span class="cat-row__label">Dining</span>
+              <span class="cat-row__track"><span class="cat-row__fill" style="width:8%"></span></span>
+              <span class="cat-row__value">$198</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
