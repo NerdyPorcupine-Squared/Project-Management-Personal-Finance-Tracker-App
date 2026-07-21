@@ -6,7 +6,7 @@ A beginner-friendly full-stack app for recording income and expenses, viewing tr
 
 - React + Vite frontend
 - Node.js + Express API
-- PostgreSQL + Prisma ORM
+- SQLite + Prisma ORM (a local database file)
 - bcrypt password hashing and JWT authentication
 
 ## Project structure
@@ -18,14 +18,13 @@ server/       Express API and Prisma schema
 
 ## Setup
 
-1. Install [Node.js](https://nodejs.org/) (version 18 or later) and PostgreSQL.
-2. Create a PostgreSQL database named `personal_finance_tracker`.
-3. Copy `.env.example` to `server/.env` and fill in `DATABASE_URL` and `JWT_SECRET`.
+1. Install [Node.js](https://nodejs.org/) (version 18 or later).
+2. Copy `.env.example` to `server/.env` and set `JWT_SECRET`.
 
    Example `DATABASE_URL`:
 
    ```env
-   DATABASE_URL="postgresql://postgres:your-password@localhost:5432/personal_finance_tracker?schema=public"
+   DATABASE_URL="file:./finance.db"
    JWT_SECRET="use-a-long-random-secret"
    ```
 
@@ -36,10 +35,10 @@ server/       Express API and Prisma schema
    npm run install:all
    ```
 
-5. Create the database tables and Prisma client:
+5. Create the local database file, tables, and Prisma client:
 
    ```bash
-   npm run prisma:migrate --prefix server -- --name init
+   npm run db:create --prefix server
    npm run prisma:generate --prefix server
    ```
 
@@ -53,7 +52,7 @@ Open `http://localhost:5173`. The API runs on `http://localhost:5000`.
 
 ## Windows executable
 
-The app can be packaged as a Windows installer (`.exe`) using Electron. It still needs PostgreSQL. For the packaged app, set `DATABASE_URL` and `JWT_SECRET` as Windows environment variables before opening it (a local `server/.env` is used during development only).
+The app can be packaged as a Windows installer (`.exe`) using Electron. It does not need Node.js, PostgreSQL, or a separate database server after it is packaged. On its first launch, the app copies an empty SQLite database to its private Windows app-data folder and saves all accounts, transactions, and goals there.
 
 ```bash
 npm install

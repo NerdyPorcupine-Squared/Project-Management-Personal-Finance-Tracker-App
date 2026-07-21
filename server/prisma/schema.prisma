@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -18,8 +18,8 @@ model User {
 
 model Transaction {
   id          Int             @id @default(autoincrement())
-  amount      Decimal         @db.Decimal(10, 2)
-  type        TransactionType
+  amount      Decimal
+  type        String
   category    String
   description String?
   date        DateTime
@@ -31,20 +31,9 @@ model Transaction {
 model FinancialGoal {
   id        Int        @id @default(autoincrement())
   name      String
-  amount    Decimal    @db.Decimal(10, 2)
-  period    GoalPeriod
+  amount    Decimal
+  period    String
   userId    Int
   user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime   @default(now())
-}
-
-enum TransactionType {
-  INCOME
-  EXPENSE
-}
-
-enum GoalPeriod {
-  DAILY
-  WEEKLY
-  MONTHLY
 }

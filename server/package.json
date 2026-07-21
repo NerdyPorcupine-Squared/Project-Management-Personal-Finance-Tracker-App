@@ -6,7 +6,8 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "db:create": "node scripts/createDatabase.js"
   },
   "dependencies": {
     "@prisma/client": "^6.3.1",
@@ -14,11 +15,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.13.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
     "prisma": "^6.3.1"
   }
 }
-
