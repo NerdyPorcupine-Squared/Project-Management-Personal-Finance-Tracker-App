@@ -19,11 +19,58 @@
     <h1>Ledgerline</h1>
     <p class="tagline">WHERE YOUR MONEY KEEPS ITS LINES STRAIGHT</p>
 
-    <a class="btn btn--primary btn--block" href="dashboard.html">Open your ledger</a>
+    <div class="cover-card__actions">
+      <button class="btn btn--primary btn--block" type="button" id="loginTrigger">Log in</button>
+      <button class="btn btn--ghost btn--block" type="button" id="registerTrigger">Create an account</button>
+    </div>
 
     <div class="cover-card__divider"></div>
 
-    <p class="cover-card__foot">This is a preview build — no account or password required. Just open the ledger to look around.</p>
+    <p class="cover-card__foot">Each account's ledger, goals, and reports are kept separate and stored only on this browser.</p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="loginModal" data-open="false">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <h3 id="loginModalTitle">Log in</h3>
+    <p class="hint">Enter the username and password you registered with.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" placeholder="e.g. Mara Ellison" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+      </div>
+      <p class="form-error" id="loginError"></p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-close-modal style="flex:1">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="loginSubmitBtn" style="flex:1">Log in</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="registerModal" data-open="false">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">
+    <h3 id="registerModalTitle">Create an account</h3>
+    <p class="hint">Usernames can only contain letters and spaces. Passwords need 8+ characters, with an uppercase letter, a lowercase letter, a number, and a symbol.</p>
+    <form id="registerForm">
+      <div class="field">
+        <label for="registerUsername">Username</label>
+        <input type="text" id="registerUsername" placeholder="e.g. Mara Ellison" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" placeholder="Password" autocomplete="new-password" required>
+      </div>
+      <p class="form-error" id="registerError"></p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-close-modal style="flex:1">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="registerSubmitBtn" style="flex:1">Create account</button>
+      </div>
+    </form>
   </div>
 </div>
 

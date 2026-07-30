@@ -37,24 +37,24 @@
   <main class="main ruled">
     <div class="topline">
       <div>
-        <p class="eyebrow">Twelve-month view</p>
+        <p class="eyebrow">Ledger-driven view</p>
         <h1 class="page-title">Reports</h1>
       </div>
-      <div class="topline__meta">Aug 2025 – Jul 2026</div>
+      <div class="topline__meta">Calculated live from your transactions</div>
     </div>
 
     <section class="kpi-row">
       <div class="card kpi">
         <div class="kpi__label">Avg. monthly savings</div>
-        <div class="kpi__value up">$583</div>
+        <div class="kpi__value" id="kpiAvgSavings">—</div>
       </div>
       <div class="card kpi">
         <div class="kpi__label">Avg. monthly spending</div>
-        <div class="kpi__value">$2,140</div>
+        <div class="kpi__value" id="kpiAvgSpending">—</div>
       </div>
       <div class="card kpi">
         <div class="kpi__label">Largest category</div>
-        <div class="kpi__value down">Housing</div>
+        <div class="kpi__value" id="kpiLargestCategory">—</div>
       </div>
     </section>
 
@@ -62,36 +62,29 @@
       <div class="card chart-card">
         <div class="chart-card__head">
           <h2>Balance trend</h2>
-          <span class="pill pill--active">Last 12 months</span>
+          <span class="pill pill--active">Live from your ledger</span>
         </div>
-        <canvas id="trendChart" style="width:100%; height:220px;" role="img" aria-label="Line chart of account balance climbing from $1,240 in August to $2,050 in July"></canvas>
+        <canvas id="trendChart" style="width:100%; height:220px;" role="img" aria-label="Line chart of account balance over time, calculated from ledger entries"></canvas>
+
+        <div class="goal-compare-row">
+          <label for="goalCompareSelect">Compare to a goal's required pace</label>
+          <select id="goalCompareSelect"></select>
+        </div>
+        <p class="goal-compare-status" id="goalCompareStatus"></p>
+
+        <div class="legend">
+          <span class="legend__item"><span class="legend__dot" style="background:#35654D"></span>Balance (on pace)</span>
+          <span class="legend__item"><span class="legend__dot" style="background:#A6432D"></span>Balance (behind pace)</span>
+          <span class="legend__item"><span class="legend__dot" style="background:#C98A3D"></span>Required pace for goal</span>
+        </div>
       </div>
 
       <div class="card chart-card">
         <div class="chart-card__head">
           <h2>Spending by category</h2>
         </div>
-        <div class="donut-wrap">
-          <svg width="140" height="140" viewBox="0 0 42 42" role="img" aria-label="Donut chart of spending by category">
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#DAD3BE" stroke-width="6"></circle>
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#7A5C3E" stroke-width="6"
-                    stroke-dasharray="47 53" stroke-dashoffset="25" transform="rotate(-90 21 21)"></circle>
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#C98A3D" stroke-width="6"
-                    stroke-dasharray="21 79" stroke-dashoffset="78" transform="rotate(-90 21 21)"></circle>
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#4E6E86" stroke-width="6"
-                    stroke-dasharray="10 90" stroke-dashoffset="57" transform="rotate(-90 21 21)"></circle>
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#A6432D" stroke-width="6"
-                    stroke-dasharray="9 91" stroke-dashoffset="47" transform="rotate(-90 21 21)"></circle>
-            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#35654D" stroke-width="6"
-                    stroke-dasharray="13 87" stroke-dashoffset="38" transform="rotate(-90 21 21)"></circle>
-          </svg>
-          <div class="legend" style="flex-direction:column; gap:8px;">
-            <span class="legend__item"><span class="legend__dot" style="background:#7A5C3E"></span>Housing — 47%</span>
-            <span class="legend__item"><span class="legend__dot" style="background:#C98A3D"></span>Groceries — 21%</span>
-            <span class="legend__item"><span class="legend__dot" style="background:#4E6E86"></span>Transport — 10%</span>
-            <span class="legend__item"><span class="legend__dot" style="background:#A6432D"></span>Dining — 9%</span>
-            <span class="legend__item"><span class="legend__dot" style="background:#35654D"></span>Other — 13%</span>
-          </div>
+        <div class="donut-wrap" id="donutWrap">
+          <!-- rendered by script.js from shared ledger data -->
         </div>
       </div>
     </section>
@@ -99,19 +92,8 @@
     <div class="section-head">
       <h2>Notes on the month</h2>
     </div>
-    <ul class="insight-list">
-      <li>
-        <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
-        Grocery spending dropped 14% from June, the lowest it's been since March.
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-        Dining spending has climbed for three months in a row — worth a look if it's not intentional.
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
-        At the current savings rate, the "New laptop" goal will be fully funded in about 3 weeks.
-      </li>
+    <ul class="insight-list" id="insightList">
+      <!-- rendered by script.js from shared ledger data -->
     </ul>
   </main>
 </div>

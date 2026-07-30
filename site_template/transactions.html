@@ -40,7 +40,7 @@
         <p class="eyebrow">Full ledger</p>
         <h1 class="page-title">Transactions</h1>
       </div>
-      <div class="topline__meta">42 entries · Jul 1 – Jul 20, 2026</div>
+      <div class="topline__meta"><span id="txCount">0</span> entries</div>
     </div>
 
     <div class="toolbar">
@@ -55,7 +55,12 @@
         <button class="chip" data-filter="groceries" aria-pressed="false">Groceries</button>
         <button class="chip" data-filter="transport" aria-pressed="false">Transport</button>
         <button class="chip" data-filter="dining" aria-pressed="false">Dining</button>
+        <button class="chip" data-filter="savings" aria-pressed="false">Savings</button>
+        <button class="chip" data-filter="other" aria-pressed="false">Other</button>
       </div>
+      <button class="btn btn--primary btn--sm" id="addEntryTrigger" type="button" aria-haspopup="dialog" aria-controls="txnModal">
+        + Add entry
+      </button>
     </div>
 
     <div class="card table-wrap">
@@ -66,69 +71,11 @@
             <th>Description</th>
             <th>Category</th>
             <th class="num">Amount</th>
+            <th class="num" style="width:76px;"><span class="visually-hidden">Actions</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr data-category="income" data-search="payroll deposit income jul 20 2026">
-            <td>Jul 20</td><td>Payroll deposit</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#35654D"></span>Income</span></td>
-            <td class="amount amount--credit">+$2,560.00</td>
-          </tr>
-          <tr data-category="groceries" data-search="fernwood market groceries jul 20 2026">
-            <td>Jul 20</td><td>Fernwood Market</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
-            <td class="amount amount--debit">−$64.22</td>
-          </tr>
-          <tr data-category="dining" data-search="rooftop noodle bar dining jul 19 2026">
-            <td>Jul 19</td><td>Rooftop Noodle Bar</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
-            <td class="amount amount--debit">−$32.50</td>
-          </tr>
-          <tr data-category="transport" data-search="northline transit pass transport jul 14 2026">
-            <td>Jul 14</td><td>Northline Transit Pass</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#4E6E86"></span>Transport</span></td>
-            <td class="amount amount--debit">−$88.00</td>
-          </tr>
-          <tr data-category="housing" data-search="cedar and co rent housing jul 15 2026">
-            <td>Jul 15</td><td>Cedar & Co. Rent</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#7A5C3E"></span>Housing</span></td>
-            <td class="amount amount--debit">−$1,450.00</td>
-          </tr>
-          <tr data-category="groceries" data-search="harvest co-op groceries jul 13 2026">
-            <td>Jul 13</td><td>Harvest Co-op</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
-            <td class="amount amount--debit">−$41.90</td>
-          </tr>
-          <tr data-category="dining" data-search="pressed juicery dining jul 12 2026">
-            <td>Jul 12</td><td>Pressed Juicery</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
-            <td class="amount amount--debit">−$8.75</td>
-          </tr>
-          <tr data-category="transport" data-search="ridehail transport jul 11 2026">
-            <td>Jul 11</td><td>Ridehail — evening trip</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#4E6E86"></span>Transport</span></td>
-            <td class="amount amount--debit">−$18.40</td>
-          </tr>
-          <tr data-category="income" data-search="freelance invoice 0042 income jul 9 2026">
-            <td>Jul 9</td><td>Freelance invoice #0042</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#35654D"></span>Income</span></td>
-            <td class="amount amount--credit">+$640.00</td>
-          </tr>
-          <tr data-category="housing" data-search="brightline power utilities housing jul 8 2026">
-            <td>Jul 8</td><td>Brightline Power & Utilities</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#7A5C3E"></span>Housing</span></td>
-            <td class="amount amount--debit">−$96.30</td>
-          </tr>
-          <tr data-category="groceries" data-search="fernwood market groceries jul 6 2026">
-            <td>Jul 6</td><td>Fernwood Market</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#C98A3D"></span>Groceries</span></td>
-            <td class="amount amount--debit">−$71.14</td>
-          </tr>
-          <tr data-category="dining" data-search="corner diner brunch dining jul 5 2026">
-            <td>Jul 5</td><td>Corner Diner — brunch</td>
-            <td><span class="tx-cat"><span class="tx-cat__dot" style="background:#A6432D"></span>Dining</span></td>
-            <td class="amount amount--debit">−$27.60</td>
-          </tr>
+          <!-- rows rendered by script.js from shared ledger data -->
         </tbody>
       </table>
       <div class="empty-state" id="txEmpty">
@@ -137,6 +84,50 @@
       </div>
     </div>
   </main>
+</div>
+
+<div class="modal-backdrop" id="txnModal" data-open="false">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="txnModalTitle">
+    <h3 id="txnModalTitle">New ledger entry</h3>
+    <p class="hint">It'll be added to the top of the ledger right away.</p>
+    <form id="txnForm">
+      <div class="field">
+        <label for="txnDesc">Description</label>
+        <input type="text" id="txnDesc" placeholder="e.g. Fernwood Market" required>
+      </div>
+      <div class="field">
+        <label for="txnDate">Date</label>
+        <input type="date" id="txnDate" required>
+      </div>
+      <div class="field">
+        <label for="txnType">Type</label>
+        <select id="txnType">
+          <option value="debit" selected>Withdrawal</option>
+          <option value="credit">Deposit</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="txnCategory">Category</label>
+        <select id="txnCategory">
+          <option value="income">Income</option>
+          <option value="housing">Housing</option>
+          <option value="groceries" selected>Groceries</option>
+          <option value="transport">Transport</option>
+          <option value="dining">Dining</option>
+          <option value="savings">Savings</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="txnAmount">Amount ($)</label>
+        <input type="number" id="txnAmount" min="0.01" step="0.01" placeholder="42.00" required>
+      </div>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" data-close-modal style="flex:1">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="txnSubmitBtn" style="flex:1">Add entry</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="script.js"></script>

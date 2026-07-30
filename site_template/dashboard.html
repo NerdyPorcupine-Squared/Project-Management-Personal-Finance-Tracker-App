@@ -38,24 +38,24 @@
     <div class="topline">
       <div>
         <p class="eyebrow">Ledger overview</p>
-        <h1 class="page-title">Good afternoon, Mara.</h1>
+        <h1 class="page-title" id="dashGreeting">Welcome back.</h1>
       </div>
-      <div class="topline__meta">Tuesday, July 21, 2026<br>Last entry logged 14 minutes ago</div>
+      <div class="topline__meta" id="dashDateMeta">Tuesday, July 21, 2026</div>
     </div>
 
     <section class="grid grid--summary">
       <div class="card balance-card">
         <span class="balance-card__label">Available balance</span>
-        <span class="balance-card__value">$<span data-count-to="8492" data-decimals="2">0</span></span>
-        <span class="balance-card__delta">↑ 4.2% since last month</span>
+        <span class="balance-card__value">$<span id="dashBalance" data-decimals="2">0</span></span>
+        <span class="balance-card__delta" id="dashBalanceDelta"></span>
       </div>
       <div class="card stat-card">
         <span class="stat-card__label">Income this month</span>
-        <span class="stat-card__value amount amount--credit">+$5,120.00</span>
+        <span class="stat-card__value amount amount--credit" id="dashIncome">+$0.00</span>
       </div>
       <div class="card stat-card">
         <span class="stat-card__label">Spending this month</span>
-        <span class="stat-card__value amount amount--debit">−$2,384.16</span>
+        <span class="stat-card__value amount amount--debit" id="dashSpending">−$0.00</span>
       </div>
     </section>
 
@@ -92,35 +92,8 @@
           <a href="transactions.html">View full ledger →</a>
         </div>
         <div class="card" style="padding: 8px 20px;">
-          <ul class="entry-list">
-            <li>
-              <div>
-                <div class="who">Fernwood Market</div>
-                <div class="meta">Groceries · Jul 20</div>
-              </div>
-              <span class="amount amount--debit">−$64.22</span>
-            </li>
-            <li>
-              <div>
-                <div class="who">Payroll deposit</div>
-                <div class="meta">Income · Jul 18</div>
-              </div>
-              <span class="amount amount--credit">+$2,560.00</span>
-            </li>
-            <li>
-              <div>
-                <div class="who">Cedar & Co. Rent</div>
-                <div class="meta">Housing · Jul 15</div>
-              </div>
-              <span class="amount amount--debit">−$1,450.00</span>
-            </li>
-            <li>
-              <div>
-                <div class="who">Northline Transit Pass</div>
-                <div class="meta">Transport · Jul 14</div>
-              </div>
-              <span class="amount amount--debit">−$88.00</span>
-            </li>
+          <ul class="entry-list" id="dashRecentList">
+            <!-- rendered by script.js from shared ledger data -->
           </ul>
         </div>
       </div>
@@ -131,27 +104,8 @@
           <a href="reports.html">Full report →</a>
         </div>
         <div class="card" style="padding: 22px 20px;">
-          <div class="category-bars">
-            <div class="cat-row">
-              <span class="cat-row__label">Housing</span>
-              <span class="cat-row__track"><span class="cat-row__fill" style="width:61%"></span></span>
-              <span class="cat-row__value">$1,450</span>
-            </div>
-            <div class="cat-row">
-              <span class="cat-row__label">Groceries</span>
-              <span class="cat-row__track"><span class="cat-row__fill" style="width:22%"></span></span>
-              <span class="cat-row__value">$522</span>
-            </div>
-            <div class="cat-row">
-              <span class="cat-row__label">Transport</span>
-              <span class="cat-row__track"><span class="cat-row__fill" style="width:9%"></span></span>
-              <span class="cat-row__value">$214</span>
-            </div>
-            <div class="cat-row">
-              <span class="cat-row__label">Dining</span>
-              <span class="cat-row__track"><span class="cat-row__fill" style="width:8%"></span></span>
-              <span class="cat-row__value">$198</span>
-            </div>
+          <div class="category-bars" id="dashCategoryBars">
+            <!-- rendered by script.js from shared ledger data -->
           </div>
         </div>
       </div>
